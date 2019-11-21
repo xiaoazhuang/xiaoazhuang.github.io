@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About"
-description: "Hey, this is aZhuang."
+description: "Hey, this is BY."
 header-img: "img/post-bg-rwd.jpg"
 ---
 
@@ -20,7 +20,7 @@ header-img: "img/post-bg-rwd.jpg"
 
     <p>Hey，我是<strong>阿撞(aZhuang)</strong>，一只JAVA程序猿，现在西安工作。</p>
 
-    <p>工作、学习之余，我还是一个体育爱好者，同时以前也非常喜欢LOL。</p>
+    <p>工作、学习之余，我还是一个体育爱好者，同时也非常喜欢LOL。</p>
 
     <p>这是我的利用 <a href="https://pages.github.com/">GitHub Pages</a> 与 <a href="http://jekyll.com.cn/">Jekyll</a> 搭建的 个人博客。</p>
 
@@ -36,5 +36,42 @@ header-img: "img/post-bg-rwd.jpg"
     </ul>
 </div>
 
-{% endif %}
+<!-- Handle Language Change -->
+<script type="text/javascript">
+    // get nodes
+    var $zh = document.querySelector(".zh");
+    var $en = document.querySelector(".en");
+    var $select = document.querySelector("select");
 
+    // bind hashchange event
+    window.addEventListener('hashchange', _render);
+
+    // handle render
+    function _render(){
+        var _hash = window.location.hash;
+        // en
+        if(_hash == "#en"){
+            $select.selectedIndex = 1;
+            $en.style.display = "block";
+            $zh.style.display = "none";
+        // zh by default
+        }else{
+            // not trigger onChange, otherwise cause a loop call.
+            $select.selectedIndex = 0;
+            $zh.style.display = "block";
+            $en.style.display = "none";
+        }
+    }
+
+    // handle select change
+    function onLanChange(index){
+        if(index == 0){
+            window.location.hash = "#zh"
+        }else{
+            window.location.hash = "#en"
+        }
+    }
+
+    // init
+    _render();
+</script>
