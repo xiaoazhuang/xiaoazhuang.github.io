@@ -1,0 +1,77 @@
+---
+layout:     post
+title:      mysql笔记整理
+subtitle:   keep study
+date:       2019-11-23
+author:     aZhuang
+header-img: img/post-bg-debug.png
+catalog: true
+tags:
+    - MySQL
+	- database
+    - 学习笔记
+---
+
+## 前言
+
+平时工作中用到MySQL的机会越来越少，有些命令有点生疏，这里总结一下
+
+### Mysql如何查看索引？？？
+```
+show index from tblname;
+```
+```
+show keys from tblname;
+```
+
+Table：表的名称
+Non_unique：如果索引不能包括重复词，则为0。如果可以，则为1
+Key_name：索引的名称
+Seq_in_index：索引中的列序列号，从1开始
+Column_name：列名称
+Collation：列以什么方式存储在索引中。在MySQL中，有值‘A'（升序）或NULL（无分类）
+Cardinality：索引中唯一值的数目的估计值。通过运行ANALYZE TABLE或myisamchk -a可以更新。基数根据被存储为整数的统计数据来计数，所以即使对于小型表，该值也没有必要是精确的。基数越大，当进行联合时，MySQL使用该索引的机会就越大
+Sub_part：如果列只是被部分地编入索引，则为被编入索引的字符的数目。如果整列被编入索引，则为NULL
+Packed：指示关键字如何被压缩。如果没有被压缩，则为NULL
+Null：如果列含有NULL，则含有YES。如果没有，则该列含有NO
+Index_type：用过的索引方法（BTREE, FULLTEXT, HASH, RTREE）
+
+### Mysql如何为表字段添加索引？？？
+1)ALTER TABLE用来创建普通索引、UNIQUE索引或PRIMARY KEY索引
+
+1.1添加PRIMARY KEY（主键索引）
+
+```
+ALTER TABLE `table_name` ADD PRIMARY KEY ( `column` ) 
+```
+1.2添加UNIQUE(唯一索引) 
+
+```
+ALTER TABLE `table_name` ADD UNIQUE ( `column` ) 
+```
+ 
+1.3.添加INDEX(普通索引) 
+
+```
+ALTER TABLE `table_name` ADD INDEX index_name ( `column` )
+```
+ 
+1.4.添加FULLTEXT(全文索引) 
+
+```
+ALTER TABLE `table_name` ADD FULLTEXT ( `column`) 
+```
+ 
+1.5.添加多列索引
+
+```
+ALTER TABLE `table_name` ADD INDEX index_name ( `column1`, `column2`, `column3` )
+```
+
+2)CREATE INDEX可对表增加普通索引或UNIQUE索引。
+```
+CREATE INDEX index_name ON table_name (column_list)
+```
+```
+CREATE UNIQUE INDEX index_name ON table_name (column_list)
+```
