@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:      JAVA容器相关源码
-subtitle:   keep study
+title:      java容器相关学习总结
+subtitle:   java源码学习
 date:       2019-12-05
 author:     aZhuang
 header-img: img/post-bg-debug.png
 catalog: true
 tags:
-    - java容器
-    - 学习笔记
+    - ArrayList
+    - HashMap
 ---
 
 ## 前言
