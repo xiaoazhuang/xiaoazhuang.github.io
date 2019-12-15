@@ -22,7 +22,7 @@ tags:
 与运算示例：  	
 ![Image text](https://raw.githubusercontent.com/xiaoazhuang/xiaoazhuang.github.io/master/img/与运算示例.png)    
 异或后运算示例：    	
-![Image text](https://raw.githubusercontent.com/xiaoazhuang/xiaoazhuang.github.io/master/img/异或后与运算示例.png)    	
+![Image text](https://raw.githubusercontent.com/xiaoazhuang/xiaoazhuang.github.io/master/img/异或后与示例.png)      	
 源码分析总结图：  	
 ![Image text](https://raw.githubusercontent.com/xiaoazhuang/xiaoazhuang.github.io/master/img/hashMap图解说明.png)  	
 ![Image text](https://raw.githubusercontent.com/xiaoazhuang/xiaoazhuang.github.io/master/img/hashMap源码分析图.png)  
